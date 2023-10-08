@@ -10,8 +10,8 @@ import { Request, Response, Router } from 'express';
 //const db = (query);
 //mongoose.Promise = global.Promise;
 
-//import { OAuth2Client } from 'google-auth-library';
-//const client = new OAuth2Client('848399011037-3dh21a0l63ht26vcvb2ahjvo4hqsudrk.apps.googleusercontent.com');
+import { OAuth2Client } from 'google-auth-library';
+const client = new OAuth2Client('848399011037-3dh21a0l63ht26vcvb2ahjvo4hqsudrk.apps.googleusercontent.com');
 
 /*mongoose.connect(db, {
 	dbName: "magicvisor",
@@ -38,29 +38,9 @@ sessionRouter.post('/token', async function (req: Request, res: Response) {
   const ticket = await client.verifyIdToken({
     idToken: token,
     audience: '848399011037-3dh21a0l63ht26vcvb2ahjvo4hqsudrk.apps.googleusercontent.com'
-  }).then((response) => {
-    const email = response.getPayload()?.email
-    const name = response.getPayload()?.name;
-    const picture = response.getPayload()?.picture;
+  });
 
-    let objToken = {
-      name,
-      emailId: email,
-      picture,
-      createdDate: new Date()
-    }
-
-	  const tokenId = btoa(JSON.stringify(objToken));
-
-	  console.log('I tokenId - ', tokenId);
-
-    res.setHeader('set-cookie', ['Foo=Bar', 'Tree=Apple', 'mid=' + tokenId + ';Path=/;Max-Age=86400*1000;Secure=false;SameSite=None;']);
-    
-    res.status(200).json([]);
-
-  })
-
-	/*const { name, email, picture } = ticket.getPayload() as GCPProfile;
+	const { name, email, picture } = ticket.getPayload() as GCPProfile;
 
 	let objToken = {
 		name,
