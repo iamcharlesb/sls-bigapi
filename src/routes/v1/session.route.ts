@@ -4,14 +4,14 @@ import { Request, Response, Router } from 'express';
 //import ActivityModel from '../models/activitySchema.js';
 
 //const router = express.Router();
-const router = Router();
+//const router = Router();
 
 //const query = "mongodb+srv://iamcharlesb:YHdqZx7CQ774S4A@cluster0.axlxrmm.mongodb.net/?retryWrites=true&w=majority";
 //const db = (query);
 //mongoose.Promise = global.Promise;
 
-import { OAuth2Client } from 'google-auth-library';
-const client = new OAuth2Client('848399011037-3dh21a0l63ht26vcvb2ahjvo4hqsudrk.apps.googleusercontent.com');
+//import { OAuth2Client } from 'google-auth-library';
+//const client = new OAuth2Client('848399011037-3dh21a0l63ht26vcvb2ahjvo4hqsudrk.apps.googleusercontent.com');
 
 /*mongoose.connect(db, {
 	dbName: "magicvisor",
@@ -31,7 +31,7 @@ interface GCPProfile {
   picture: string;
 }
 
-router.post('/token', async function (req: Request, res: Response) {
+sessionRouter.post('/token', async function (req: Request, res: Response) {
 
 	const { token } = req.body;
 
